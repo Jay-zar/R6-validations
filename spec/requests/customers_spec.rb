@@ -58,11 +58,11 @@ describe "get new_customer_path" do
   describe "put customer_path with invalid data" do
     it "does not update the customer record or redirect" do
       customer = FactoryBot.create(:customer)
-        
+      
     end
   end
   describe "delete a customer record" do
-    it "deletes a customer record" do
+    it "deletes a customer record"
       customer = FactoryBot.create(:customer)
       delete customer_path(customer.id)
       expect(response).to redirect_to customers_path
