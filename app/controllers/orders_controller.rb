@@ -16,31 +16,24 @@ class OrdersController < ApplicationController
     # GET /orders/new
     def new
         @order = Order.new
-        if @order.save
-            flash.notice = "The order record was created successfully."
-            redirect_to @order
-        else
-            flash.now.alert = @order.errors.full_messages.to_sentence
-            render :new  
-        end
     end
     # GET /orders/1 or /orders/1.json
     def edit
     end
 
     # POST /orders/1 or /orders/1.json
-    def  create
+    def create
         @order = Order.new(order_params)
         respond_to do |format|
-            if @order.save
-                format.html { redirect_to orders_path, notice: 'Order was successfully created.' }
-                format.json { render :show, status: :created, location: @order }
-            else
-                format.html { render :new }
-                format.json { render json: @order.errors, status: :unprocessable_entity }
-            end
+          if @order.save
+            format.html { redirect_to orders_path, notice: 'Order was successfully created.' }
+            format.json { render :show, status: :created, location: @order }
+          else
+            format.html { render :new }
+            format.json { render json: @order.errors, status: :unprocessable_entity }
+          end
         end
-    end
+      end
     
     # PATCH/PUT /orders/1 or /orders/1.json
     def update
@@ -67,7 +60,7 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-        params.require(:order).permit(:product_naem, :product_count, :order_id)
+        params.require(:order).permit(:product_name, :product_count, :customer_id)
     end
 
     def catch_not_found(e)
