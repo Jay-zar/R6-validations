@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
     # set an order where showing it is needed
     before_action :set_order, only: %i[show edit update destroy]
-    layout 'order_layout'
+    #layout 'order_layout'
 
     # GET /orders/ or /orders.json
     def index

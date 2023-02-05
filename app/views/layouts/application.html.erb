@@ -11,6 +11,39 @@
   </head>
 
   <body>
+    <% if !flash[:alert].nil? %>
+      <p class="my_alert"><%= flash[:alert] %></p>
+    <% end %>
+    <%# Navbar HTML %>
+    <nav class="navbar navbar-expand-sm   navbar-dark bg-primary">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item dropdown dmenu">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Customers
+        </a>
+        <div class="dropdown-menu sm-menu">
+          <%= link_to 'List Customers', customers_path, class: "dropdown-item" %>
+          <%= link_to 'New Customer', new_customer_path, class: "dropdown-item" %>
+        </div>
+      </li>
+      <li class="nav-item dropdown dmenu">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Orders
+        </a>
+        <div class="dropdown-menu sm-menu">
+          <%= link_to 'List Orders', orders_path, class: "dropdown-item" %>
+          <%= link_to 'New Order', new_order_path, class: "dropdown-item" %>
+        </div>
+      </li>
+      </ul>
+    </nav>
+    <%# Jumbotron HTML %>
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Welcome to Furbytown</h1>
+    <p class="lead">The one stop shop for all Furby related items and kitchen ware</p>
+  </div>
+</div>
     <%= yield %>
   </body>
 </html>

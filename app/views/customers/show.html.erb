@@ -1,43 +1,49 @@
-<p id="notice"><%= notice %></p>
+<div class="card shadow p-3 mb-5 mx-2 bg-white rounded">
+  <div class="container mx-3">
+  <div class="row">
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @customer.first_name %>
-</p>
+      <div class="col p-2">
+        <h3>First name:</h3>
+        <%= @customer.first_name %>
+      </div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @customer.last_name %>
-</p>
+      <div class="col p-2">
+        <h3>Last name:</h3>
+        <%= @customer.last_name %>
+      </div>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @customer.phone %>
-</p>
+      <div class="col p-2">
+        <h3>Phone:</h3>
+        <%= @customer.phone %>
+      </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @customer.email %>
-</p>
-
-<table>
-  <%if @orders.empty? %>
-    <p>This customer has no orders</p>
-  <% else %>
-    <p>
-      <strong>Orders:</strong>
-    </p>
-    <% @customer.orders.each do |order| %>
-      <tr>
-        <td><%= order.product_name %> </td>
-        <td> <%= order.product_count %> </td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  <% end %>
-</table>
-
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+      <div class="col p-2">
+        <h3>Email:</h3>
+        <%= @customer.email %>
+      </div>
+    </div>
+    <div class="row">
+      <%if @orders.empty? %>
+        <p>This customer has no orders</p>
+      <% else %>
+      <h4 class="p-2">Orders:</h4>
+      <% @customer.orders.each do |order| %>
+      <table class="mt-5 p-4">
+            <tr>
+              <td><%= order.product_name %> </td>
+              <td> <%= order.product_count %> </td>
+              <td><%= link_to 'Show', order, class: "btn btn-primary" %></td>
+              <td><%= link_to 'Edit', edit_order_path(order), class: "btn btn-primary" %></td>
+              <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+    <span>
+    <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-secondary px-1px-1 mx-1 my-auto" %>
+    <%= link_to 'Back', customers_path, class: "btn btn-secondary px-1 mx-1 my-auto" %>
+    </span>
+  </div>
+</div>

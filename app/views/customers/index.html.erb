@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container my-5">
 <h1>Customers</h1>
 
 <table>
@@ -15,12 +15,12 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.full_name %></td>
+        <td><i class="fa-solid fa-user m-2"></i><%= customer.full_name %></td>
         <td><%= customer.phone %></td>
         <td><%= customer.email %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', customer, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Customer', new_customer_path %>
+<%= link_to 'New Customer', new_customer_path, class: "btn btn-primary" %>
+</div>
